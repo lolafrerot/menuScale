@@ -1,0 +1,119 @@
+/*******************
+
+Variables
+
+*******************/
+/*******************
+
+Fonctions
+
+*******************/
+.sr-only {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  position: absolute; }
+
+header {
+  padding: 7px; }
+
+#menuToggle {
+  background-image: url(../img/slick-nextb.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  background-size: 100% auto;
+  border: none;
+  padding: 7px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: auto;
+  display: block;
+  cursor: pointer; }
+  #menuToggle:hover {
+    background-color: #00d4ff; }
+  #menuToggle.open {
+    transform: rotate(90deg); }
+  #menuToggle:focus {
+    outline: none;
+    background-color: #00d4ff; }
+
+.menuScale {
+  padding: 0; }
+  .menuScale .extra {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid white; }
+    .menuScale .extra > div {
+      background: #090979;
+      flex-grow: 2;
+      padding: 30px; }
+      .menuScale .extra > div * {
+        color: white; }
+  .menuScale a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 7px 0; }
+    .menuScale a:hover {
+      color: #090979; }
+    @media only screen and (min-width: 48rem) {
+      .menuScale a {
+        font-size: 22px; } }
+  .menuScale > ul {
+    padding: 30px; }
+  .menuScale button {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer; }
+    .menuScale button:focus {
+      outline: none;
+      background-color: #090979; }
+    .menuScale button:hover {
+      background: #090979; }
+  .menuScale .opened > button {
+    transform: rotate(45deg); }
+  .menuScale li {
+    padding: 7px 0; }
+
+#main,
+footer {
+  padding: 30px;
+  background: whitesmoke; }
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  display: block; }
+
+h2 {
+  font-size: 27px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  display: block; }
+
+h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  display: block; }
+
+p {
+  display: block;
+  margin-bottom: 15px; }
+
+.list {
+  padding-left: 28px;
+  list-style: circle; }
+
+pre {
+  background: white; }
+
+/*# sourceMappingURL=theme.css.map */

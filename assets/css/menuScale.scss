@@ -1,0 +1,178 @@
+@import '_mixins';
+@import '_keyframes';
+@import '_layout';
+
+
+
+/**********************
+
+module
+
+**********************/
+html, body{
+    width: 100%;
+}
+body.overflow{
+    overflow: hidden;
+}
+header#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $ui-margin*2;
+    width: 100%; 
+    background: $ui-color-primary;
+    z-index: 99;
+    @include bp-medium{
+        height: 100%;
+        width: $ui-margin*2;
+    }
+}
+
+.menuScaleBody {
+   
+
+    @include bp-medium {
+        padding-left: $ui-margin*2;
+        &.right {
+            padding-left: 0;
+            padding-right: $ui-margin*2;
+        }
+    }
+}
+
+.menuScale {
+    display: none;
+    background: $ui-color-secondary;
+    position: fixed;
+    top: $ui-margin*2;
+    left: 0;
+    width: 100%;
+    height: calc(100% - #{$ui-margin*2});
+    padding: $ui-margin;
+    overflow: auto;
+    @include bp-medium{
+        top: 0;
+        left: $ui-margin*2;
+        width: $ui-size-menu;
+        height: $ui-size-menu;
+        overflow: hidden;
+    }
+
+    &.bottom {
+        @include bp-medium {
+
+            top: auto;
+            bottom: 0;
+
+        }
+    }
+
+    &.right {
+
+        @include bp-medium {
+
+            left: auto;
+            right: $ui-margin*2;
+
+        }
+    }
+
+
+    &.open {
+
+        display: block;
+        -webkit-animation: scale-up-tl $ui-animation-duration $ui-cubic-bezier both;
+	        animation: scale-up-tl $ui-animation-duration $ui-cubic-bezier both;
+        @include bp-medium{
+            display: flex;
+            
+            &.top.right{
+                -webkit-animation: scale-up-tr $ui-animation-duration $ui-cubic-bezier both;
+	        animation: scale-up-tr $ui-animation-duration $ui-cubic-bezier both;
+            }
+            &.top.left{
+                -webkit-animation: scale-up-tl $ui-animation-duration $ui-cubic-bezier both;
+	        animation: scale-up-tl $ui-animation-duration $ui-cubic-bezier both;
+            }
+            &.bottom.right{
+                -webkit-animation: scale-up-br $ui-animation-duration $ui-cubic-bezier both;
+	        animation: scale-up-br $ui-animation-duration $ui-cubic-bezier both;
+            }
+            &.bottom.left{
+                -webkit-animation: scale-up-bl $ui-animation-duration $ui-cubic-bezier both;
+	        animation: scale-up-bl $ui-animation-duration $ui-cubic-bezier both;
+            }
+        }
+
+    }
+    .extra{
+        @include bp-medium{
+            width: 30%;
+        }
+        
+        >div{
+            -webkit-animation: slide-right $ui-animation-duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-right $ui-animation-duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation-delay: $ui-animation-duration;
+            &:last-of-type{
+                animation-delay: $ui-animation-duration*1.3;
+            }
+        }
+        &+ul{
+            @include bp-medium{
+                width: 25%;
+            }
+        }
+        
+    }
+    
+    ul {
+        position: relative;
+        list-style: none;
+        padding: $ui-margin;
+        -webkit-animation: slide-right $ui-animation-duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-right $ui-animation-duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+        ul{
+            display: none;
+            flex-direction: column;
+            &.open{
+                display: flex;
+            }
+        }
+        @include bp-medium {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            flex-direction: column;
+            width: 33%;
+
+            ul {
+                
+                position: absolute;
+                left: calc(100% - #{$ui-margin});
+                top: 0;
+                width: 100%;
+                ul {
+                    
+                    width: 100%;
+                }
+            }
+        }
+    }
+    >ul{
+        animation-delay: $ui-animation-duration;
+        
+    }
+
+}
+header .frame-type-menu_principal{
+    position: static;
+    nav{
+        opacity: 0;
+        &.menuScale{
+            opacity: 1;
+        }
+    }
+}

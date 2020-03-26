@@ -1,0 +1,152 @@
+@import '_mixins';
+
+.sr-only {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+header {
+    padding: 7px;
+}
+
+#menuToggle {
+    background-image: url(../img/slick-nextb.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    background-size: 100% auto;
+    border: none;
+    padding: 7px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $ui-color-secondary;
+    }
+
+    &.open {
+        transform: rotate(90deg);
+    }
+
+    &:focus {
+        outline: none;
+        background-color: $ui-color-secondary;
+    }
+}
+
+
+
+.menuScale {
+    padding: 0;
+
+    .extra {
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid white;
+
+        > div {
+            background: $ui-color-primary;
+            flex-grow: 2;
+            padding: $ui-margin;
+
+            * {
+                color: white;
+            }
+        }
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 7px 0;
+
+        &:hover {
+            color: $ui-color-primary;
+        }
+
+        @include bp-medium {
+            font-size: 22px;
+        }
+    }
+
+    > ul {
+        padding: $ui-margin;
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+            background-color: $ui-color-primary;
+        }
+
+        &:hover {
+            background: $ui-color-primary;
+        }
+    }
+
+    .opened {
+        > button {
+            transform: rotate(45deg);
+        }
+    }
+
+    li {
+        padding: 7px 0;
+    }
+}
+
+#main,
+footer {
+    padding: $ui-margin;
+    background: whitesmoke;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: $ui-margin;
+    display: block;
+}
+
+h2 {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: $ui-margin;
+    display: block;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: $ui-margin/2;
+    display: block;
+}
+
+p {
+    display: block;
+    margin-bottom: $ui-margin/2;
+}
+
+.list {
+    padding-left: 28px;
+    list-style: circle
+}
+pre{
+    background: white;
+}
