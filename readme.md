@@ -3,6 +3,8 @@
 
 ## Utilisation
 
+Demo du menu : [Demo](https://lolafrerot.fr/menuScale/)
+
 direction : choix de l'origine de l'animation
 
 -   top left
