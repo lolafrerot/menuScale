@@ -1,0 +1,454 @@
+@import '_mixins';
+$ui-color-primary : #ff5365;
+$ui-color-secondary : #ffe8df;
+
+.sr-only {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+img {
+    max-width: 100%;
+}
+
+.button {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    // Using inset box-shadow instead of border for sizing simplicity
+    box-shadow: inset 0 0 0 2px $ui-color-primary;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+
+    // Required, since we're setting absolute on pseudo-elements
+    position: relative;
+    vertical-align: middle;
+    margin: 0;
+    margin-bottom: 60px;
+    color: $ui-color-primary;
+    text-decoration: none;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover {
+        background: white;
+        // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
+        color: $ui-color-primary;
+    }
+
+    // Set up base styles, we're going to scale instead of animating width/height
+    &::before,
+    &::after {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        transform-origin: center; // Ensure scaling is done from the center (expands outwards)
+    }
+
+    // scale3d(<scale-horizontal>, <scale-vertical>, <scale-depth>);
+    &::before {
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        -webkit-animation: button-anim-2 $ui-animation-duration cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: button-anim-2 $ui-animation-duration cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation-delay: $ui-animation-duration*2.5;
+    }
+
+    &::after {
+        border-left: 2px solid white;
+        border-right: 2px solid white;
+        -webkit-animation: button-anim-1 $ui-animation-duration cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: button-anim-1 $ui-animation-duration cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation-delay: $ui-animation-duration*2.5;
+    }
+
+
+
+}
+
+body {
+    background: $ui-color-secondary;
+    color: $ui-color-primary;
+
+    &:before {
+        content: " ";
+        display: block;
+        position: fixed;
+        width: 20%;
+        left: calc(62.5% - 60px);
+        top: 0;
+        height: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+
+    &:after {
+        content: " ";
+        display: block;
+        position: fixed;
+        width: 20%;
+        left: calc(22% - 60px);
+        top: 0;
+        height: 100%;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+
+    @include bp-medium {
+        padding-right: 60px;
+    }
+}
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+header {
+    padding: 7px;
+}
+
+header#header {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0;
+    height: $ui-margin*2;
+    width: 100%;
+    background: $ui-color-primary;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    img {
+        margin-left: $ui-margin;
+    }
+}
+
+#menuToggle {
+
+    border: none;
+    padding: 7px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin: 0;
+    margin-top: 5px;
+    background: whitesmoke;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: 100ms ease;
+
+    .bat {
+        transition: 100ms ease;
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: $ui-color-primary;
+        position: absolute;
+        top: 8px;
+        left: 6px;
+        transform-origin: 1px 0;
+
+        &:nth-of-type(2) {
+            top: 14px;
+        }
+
+        &:nth-of-type(3) {
+            top: 21px;
+        }
+    }
+
+    &:hover {
+        background-color: $ui-color-secondary;
+        transition: 100ms ease;
+    }
+
+    &:focus {
+
+        background: $ui-color-secondary;
+
+    }
+
+    &.open {
+        .bat {
+            transition: 100ms ease;
+
+            &:first-of-type {
+                transform: rotate(90deg) translateY(-10px) translateX(-2px);
+
+            }
+
+            &:nth-of-type(2) {}
+
+            &:nth-of-type(3) {
+                opacity: 0;
+            }
+        }
+
+    }
+
+    &:focus {
+        outline: none;
+
+    }
+}
+
+
+
+.menuScale {
+    padding: 0;
+    background: $ui-color-primary;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    height: calc(100% - 60px);
+    width: 100%;
+    .extra {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            margin-bottom: 30px;
+        }
+
+        > div {
+            background: lighten($ui-color-primary, 5%);
+            flex-grow: 2;
+            padding: $ui-margin/2;
+
+            @include bp-medium {
+                padding: $ui-margin;
+            }
+
+            h2 {
+                color: $ui-color-secondary;
+            }
+
+            color: white;
+
+            &.bottomed {
+                @include bp-medium {
+
+
+                    position: absolute;
+                    background: transparent;
+                    bottom: 0;
+                    right: 28%;
+                    padding: 0;
+                    width: 72%; 
+                    z-index: 9;
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        width: 100%;
+                        li{
+                            width: auto;
+                            padding: 7px 14px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    .item-has-children.opened {
+
+        &:after {
+            -webkit-animation: slide-right $ui-animation-duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-right $ui-animation-duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            margin-top: -20px;
+            content: " ";
+            display: block;
+            border: 10px solid transparent;
+            border-right: 10px solid darken($ui-color-primary, 5%);
+            position: absolute;
+            right: 0;
+        }
+
+        .item-has-children.opened {
+            &:after {
+                border: 10px solid transparent;
+                border-right: 10px solid darken($ui-color-primary, 10%);
+            }
+        }
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-weight: 400;
+        padding: 7px 0;
+        font-size: 14px;
+
+        &:hover {
+            color: $ui-color-secondary;
+        }
+
+        @include bp-medium {
+            font-size: 16px;
+        }
+    }
+
+     .navcontainer > ul {
+        padding-top: 60px;
+
+        li {
+            padding: 7px 0;
+        }
+        @include bp-medium {
+            padding: $ui-margin;
+        }
+
+        &:before {
+            content: "1";
+            display: block;
+            position: absolute;
+            top: 10px;
+            width: 3rem;
+            height: 3rem;
+            border: 1px solid white;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 3;
+            color: white;
+            opacity: 0.25;
+        }
+
+        ul {
+            background: darken($ui-color-primary, 5%);
+
+            &:before {
+                content: "2";
+                display: block;
+
+            }
+
+            ul {
+                &:before {
+                    content: "3";
+                    display: block;
+                }
+
+                background: darken($ui-color-primary, 10%);
+            }
+        }
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        color: white;
+        width: 1.3rem;
+        height: 1.3rem;
+        border: 1px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        float: right;
+        position: absolute;
+        right: 15px;
+        margin-top: 10px;
+
+        @include bp-medium {
+            margin-top: -3px;
+            right: 30px;
+        }
+
+        &:focus {
+            outline: none;
+            background-color: $ui-color-primary;
+        }
+
+        &:hover {
+            background: $ui-color-primary;
+        }
+    }
+
+    .opened {
+        > button {
+            transform: rotate(45deg);
+        }
+    }
+
+     
+}
+
+
+
+#main,
+footer {
+    padding: $ui-margin;
+
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: $ui-margin*2;
+    display: block;
+    color: $ui-color-primary;
+}
+
+h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: $ui-margin/2;
+    display: block;
+    color: $ui-color-primary;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: $ui-margin/2;
+    display: block;
+}
+
+p {
+    display: block;
+    margin-bottom: $ui-margin/2;
+}
+
+.list {
+    padding-left: 28px;
+    list-style: circle
+}
+
+pre {
+    background: white;
+}
+
+section {
+    text-align: center;
+
+    img {
+        margin-bottom: 60px;
+    }
+}
+
+.flex {
+    font-size: 12px;
+
+    @include bp-medium {
+        padding: 60px 0;
+        display: flex;
+        justify-content: space-between;
+
+    }
+}

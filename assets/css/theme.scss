@@ -10,7 +10,16 @@
 header {
     padding: 7px;
 }
+header#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $ui-margin*2;
+    width: 100%;
+    background: $ui-color-primary;
+    z-index: 99;
 
+}
 #menuToggle {
     background-image: url(../img/slick-nextb.png);
     background-repeat: no-repeat;
@@ -30,6 +39,11 @@ header {
         background-color: $ui-color-secondary;
     }
 
+    &:focus{
+        span{
+            background: $ui-color-secondary;
+        }
+    }
     &.open {
         transform: rotate(90deg);
     }
@@ -114,7 +128,7 @@ header {
 #main,
 footer {
     padding: $ui-margin;
-    background: whitesmoke;
+ 
 }
 
 h1 {

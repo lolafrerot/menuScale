@@ -3,7 +3,8 @@
 
 ## Utilisation
 
-Demo du menu : [Demo](https://lolafrerot.fr/menuScale/)
+Demo du menu : [Demo](https://lolafrerot.fr/composantBibliotheque/menus/menuScale/)
+Demo du menu 2 : [Demo2](https://lolafrerot.fr/composantBibliotheque/menus/menuScale/index2)
 
 direction : choix de l'origine de l'animation
 

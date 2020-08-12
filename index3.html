@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Menu scale - 3 niveaux</title>
     <link rel="stylesheet" href="assets/css/menuScale.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/theme3.css">
 </head>
 
 <body>
@@ -14,17 +14,25 @@
     <main>
 
         <header id="header">
-           <button id="menuToggle" type="button" aria-expanded="false" aria-controls="menuScale"><span class="sr-only">open menu</span></button>
+           <button id="menuToggle" type="button" aria-expanded="false" aria-controls="menuScale">
+           <span class="bat"></span>
+           <span class="bat"></span>
+           <span class="bat"></span>
+           <span class="sr-only">open menu</span>
+           </button>
+           <img id="logo" src="assets/img/assassins-creed.svg" width="30" alt="">
             <nav id="menuScale" class="nav" role="navigation">
                <div class="extra">
                    <div>
+                      <img src="assets/img/assassins-creed.svg" width="80" alt="">
                        <h2>Menu</h2>
                        <p>Menu description</p>
                    </div>
                    <div>
                        <h2>Contact</h2>
                        <p>Contact description</p>
-                   </div>
+                       
+                   </div> 
                </div>
                 <ul id="mainMenu">
                     <li>
@@ -43,7 +51,7 @@
                                     <li><a href="#">Menu item</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Menu item long</a></li>
+                            <li><a href="#">Menu item long sur plusieures lignes</a></li>
                             <li><a href="#">Menu item</a></li>
                             <li><a href="#">Menu item</a></li>
                         </ul>
@@ -57,7 +65,7 @@
                             <li><a href="#">Menu item long</a></li>
                             <li><a href="#">Menu item</a></li>
                             <li>
-                                <a href="#">Menu item</a>
+                                <a href="#">Menu item long sur plusieures lignes</a>
                                 <ul>
                                     <li><a href="#">Menu item</a></li>
                                     <li><a href="#">Menu item</a></li>
@@ -77,55 +85,26 @@
             </nav>
         </header>
         <div id="main">
-            <h1>Menu scale</h1>
+          <section>
+           <a href="index.html" class="button">Retour à la doc</a>
+           <a href="index2.html" class="button">Demo 1</a>
+            <h1>Nous sommes une agence digitale</h1>
+            <img src="assets/img/assassins-creed.svg" width="120" alt="">
             <div>
-                <h2>Utilisation</h2>
-                <p>direction : choix de l'origine de l'animation</p>
-                <ul class="list">
-                    <li>top left</li>
-                    <li>top right</li>
-                    <li>bottom left</li>
-                    <li>bottom right</li>
-                </ul>
-                <br>
-                <p>menuButton : id du bouton qui ouvre le menu</p>
-                <p>element : id du bloc à déplier (pas la ul si on veut ajouter du contenu supplémentaire)</p>
-                
-                
-                <pre>
-                    <code>
-                        menuScale.option({
-                           
-                            element: '#menuScale',
-                            menuButton: '#menuToggle',
-                            direction: 'bottom left',
-                            submenuTitle: "Ouvrir le sous-menu"
-                            
-                        });
-                    </code>
-                </pre>
-                
-                <br>
-                
-                <h2>Spécificités</h2>
-                
-                <p>Le ul du menu et la div.extra se positionnent l'un à coté de l'autre, extra en premier</p>
-                <p>Mise en place des aria expanded</p>
-                <p>Layout utilisant les flexbox</p>
-                <p>Responsive</p>
-                <p>Le bouton se situe hors de l'element à déplier</p>
-                <p>Compliation scss avec le logiciel koala pour une insertion plus facile dans les projets !</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque, turpis in pretium dapibus, magna ligula fermentum ex, eget aliquet purus libero in nisi. Vestibulum ut ultrices ante. Vestibulum et est ante. Mauris auctor, augue non euismod placerat, urna nisi congue ligula, at luctus purus arcu at nisl. Etiam non mauris nunc. Phasellus sed turpis non metus tincidunt fringilla id ac sapien. </p>
             </div>
+            <div class="flex">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <img src="assets/img/reveal.jpg" alt="">
+            </section>
         </div>
-        <footer>
-            <p>Réalisé par Lola FREROT</p>
-        </footer>
+    
 
     </main>
-    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    
     <script src="assets/js/menuScale.js"></script>
     <script>
         var menuscale  = new menuScale({
